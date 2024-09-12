@@ -1,1 +1,1 @@
-Link shortened and QR code generator.
+Link shortener and QR code generator.
