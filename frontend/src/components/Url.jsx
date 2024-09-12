@@ -1,5 +1,6 @@
 import qrcode from "qrcode";
 import { useState } from "react";
+import '../main.css';  
 
 const Url = () => {
   const [url, setUrl] = useState("");
@@ -100,7 +101,7 @@ const Url = () => {
         </div>):(<div className="h-10"></div>)}
 
       <form>
-      <label className="text-white font-bold mt-4">Enter URL:</label><br/>
+      <label className="text-white font-bold mt-2">Enter URL:</label><br/>
         <input
           type="text"
           name="url"
@@ -136,7 +137,7 @@ const Url = () => {
         /></>)}
 
         <br />
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center pt-2">
           <button
             onClick={handleShorten}
             className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-md"
