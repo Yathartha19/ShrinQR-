@@ -20,7 +20,7 @@ const Url = () => {
     }
     try {
       console.log({ tag, url });
-      const exists = await fetch("http://localhost:8000/api/short/checker", {
+      const exists = await fetch("https://shrinqr.onrender.com/api/short/checker", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,10 +30,10 @@ const Url = () => {
       const exist = await exists.json();
       if (exist.exists) {
         console.log('EXISTS')
-        setShortUrl(`http://localhost:8000/${exist.data.tag}`);
+        setShortUrl(`https://shrinqr.onrender.com/${exist.data.tag}`);
         return;
       }
-      const response = await fetch("http://localhost:8000/api/short/create", {
+      const response = await fetch("https://shrinqr.onrender.com/api/short/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Url = () => {
         throw new Error("Failed to shorten URL");
       }
       const data = await response.json();
-      setShortUrl(`http://localhost:8000/${data.tag}`);
+      setShortUrl(`https://shrinqr.onrender.com/${data.tag}`);
       console.log(data);
     } catch (err) {
       setError(err.message);
@@ -85,7 +85,7 @@ const Url = () => {
     }
     try {
       console.log(`Unshortening the URL for ${url}`);
-      const response = await fetch(`http://localhost:8000/api/short/unshort/${url}`);
+      const response = await fetch(`https://shrinqr.onrender.com/api/short/unshort/${url}`);
       setUnshortUrl(await response.json());
     } catch (err) {
       setError("Failed to unshorten URL");
