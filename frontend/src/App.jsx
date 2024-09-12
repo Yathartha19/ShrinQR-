@@ -1,4 +1,4 @@
-import Url from './components/url'
+import Url from './components/Url'
 import './main.css'
 
 function App() {
