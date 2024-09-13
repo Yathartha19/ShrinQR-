@@ -84,9 +84,10 @@ const Url = () => {
         setError("Please enter a URL to unshorten");
         return  
     }
+    const link = url.split("/").pop();
     try {
-      console.log(`Unshortening the URL for ${url}`);
-      const response = await fetch(`https://shrinqr.onrender.com/api/short/unshort/${url}`);
+      console.log(`Unshortening the URL for ${link}`);
+      const response = await fetch(`https://shrinqr.onrender.com/api/short/unshort/${link}`);
       setUnshortUrl(await response.json());
     } catch (err) {
       setError("Failed to unshorten URL");
