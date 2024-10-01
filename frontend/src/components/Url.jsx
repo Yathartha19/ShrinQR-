@@ -19,6 +19,14 @@ const Url = () => {
         setError("Please enter a URL to shorten");
         return  
     }
+    if (tag.includes(' ')) {
+        setError("Custom Alias cannot contain spaces.");
+        return  
+    }
+    const urlPattern = /^(https?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!$&'()*+,;=.]+$/;
+    if (!urlPattern.test(url)) {
+        setError("Please enter a valid URL.");
+    }
     try {
       console.log({ tag, url });
       const exists = await fetch("https://shrinqr.onrender.com/api/short/checker", {
